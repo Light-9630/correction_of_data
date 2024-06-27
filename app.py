@@ -26,7 +26,6 @@ def correct_value(value, correction_dict):
 
 # Main Streamlit app
 def main():
-    st.title("Data Correction App")
 
     st.markdown("<h1 style='text-align: center;'>Data Correction App</h1>", unsafe_allow_html=True)
 
