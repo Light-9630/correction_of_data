@@ -27,7 +27,7 @@ def correct_value(value, correction_dict):
 # Main Streamlit app
 def main():
 
-    st.markdown("<h1 style='text-align: center;'>Data Correction App</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center;'>Data Correction Web App</h1>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Upload your main data Excel file", type=["xlsx"])
 
