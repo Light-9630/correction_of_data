@@ -5,7 +5,7 @@ from io import BytesIO
 # Load reference sheets at the backend
 @st.cache_data
 def load_reference_sheets():
-    ref_sheets = ["trade", "state", "district", "type", "qpcode", "response"]
+    ref_sheets = ["trade", "state", "district", "type", "response"]
     refs = {sheet: pd.read_excel("ref.xlsx", sheet_name=sheet) for sheet in ref_sheets}
     return refs
 
@@ -27,6 +27,8 @@ def correct_value(value, correction_dict):
 # Main Streamlit app
 def main():
     st.title("Data Correction App")
+
+    st.markdown("<h1 style='text-align: center;'>Data Correction App</h1>", unsafe_allow_html=True)
 
     uploaded_file = st.file_uploader("Upload your main data Excel file", type=["xlsx"])
 
