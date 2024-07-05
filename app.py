@@ -24,6 +24,11 @@ def correct_value(value, correction_dict):
     value_clean = clean_string(value)
     return correction_dict.get(value_clean.lower(), "#N/A")
 
+# Function to trim all columns in a DataFrame
+def trim_all_columns(df):
+    trim_strings = lambda x: x.strip() if isinstance(x, str) else x
+    return df.applymap(trim_strings)
+
 # Main Streamlit app
 def main():
 
@@ -33,6 +38,9 @@ def main():
 
     if uploaded_file:
         main_data = pd.read_excel(uploaded_file)
+
+        # Trim all columns in the uploaded data
+        main_data = trim_all_columns(main_data)
 
         # Clean extra spaces from incorrect values in reference data and create dictionaries for correct values
         correct_trade = dict(zip(refs["trade"]["incorrect trade"].apply(clean_string), refs["trade"]["correct trade"]))
